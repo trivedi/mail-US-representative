@@ -1,0 +1,50 @@
+<!doctype html>
+<head>
+    <title>Send a letter to your representative</title>
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata|Noto+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />   
+</head>
+<body>
+<div class="content">
+	<h1>Send a letter to your U.S. Representative</h1>
+
+	<p>Writing a letter to legislators has never been easier.</p>
+	<p>Using the address you provide, we'll match you up with your U.S. Representative and fashion a letter ready to be mailed.</p>	
+	<p>Whether or not you think <a href="https://www.buzzfeed.com/scottybryan/mrs-landingham-whats-next?utm_term=.hq1VD6aXO#.ygbYAbQO8">The West Wing</a>
+	is one of the greatest political shows ever made, we think it's important to be aware of the
+	politics and current events that surround our community, nation, and world. Instead of spending your time applauding 
+	<a href="https://en.wikipedia.org/wiki/Josiah_Bartlet">President Bartlet</a>'s nuggets of wisdom, let your voice be heard loud and proud by those in Congress.</p>
+
+	<form id="user-form" action="{{ url_for('build_letter') }}" method="post">
+	<h2>Fill this form with your information and the message you would like to send</h2>
+	<div style="margin:0;padding:0">
+	    <label for="username">Name</label>
+	    <input id="name" name="name" type="text" placeholder="Nishad Trivedi" required />
+
+	    <label for="address1">Address Line 1</label>
+	    <input id="address1" name="address1" type="text" placeholder="633 Ontario St SE" style="width:45%;" required />
+
+	    <label for="address2">Address Line 2</label>
+	    <input id="address2" name="address2" type="text" placeholder="Apt 203" style="width:25%;"  />
+
+	    <label for="city">City</label>
+	    <input id="city" name="city" type="text" placeholder="Minneapolis" style="width:45%;" required />
+
+	    State
+	    <select name="state" style="margin-right: 5px;">
+		  {% for state in states %}
+		  <option>{{ state }}</option>
+		  {% endfor %}
+		</select>
+
+	 	<label for="zip">Zip Code</label>
+	    <input id="zip" name="zip" type="text" placeholder="55414" style="width:25%;" required /><br>
+
+		<label for="message-area">Enter your message (we'll address the recipient and sign-off for you)</label>
+		<textarea id="message-area" name="message" placeholder="Thank you for your service." required></textarea><br>
+		<input type="submit" value="Submit" style="width:10%;" />
+	</div>
+	</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!doctype html>
+<head>
+    <title>Success - Letter Created!</title>
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata|Noto+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+	<div class="content">
+	<h1>You're all set, {{ user_data['name'].split()[0] }}!</h1>
+	
+	<p>Here is the <a href="{{ letter_file }}">letter</a> we created for you.</p>
+
+	<p>By the way, have you registered to vote for the upcoming elections? Here is <a href="https://register.vote.org/?state={{ state }}">{{ state }}</a>'s online voter registration form.</p>
+
+	<p>Send <a href="{{ url_for('index') }}">another letter</a>?</p>
+	</div>
+</body>
+</html>
